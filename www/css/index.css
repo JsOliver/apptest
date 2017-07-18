@@ -1,0 +1,299 @@
+html{
+    height: 100% !important;
+
+}
+body{
+    background: #ababab;
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none !important;
+
+}
+a:hover{
+    color: white !important;
+}
+form{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+.icon-trash{
+    font-size: 12pt;
+}
+.opacity{
+    opacity: 0.5;
+}
+.app-active{
+    display: block;
+}
+
+.app{
+    display: none;
+}
+.body-app{
+    background: #ababab;
+
+}
+.nav-app{
+    position: fixed;
+    z-index: 100 !important;
+    float: left;
+    width: 100%;
+    background: #1f85ff;
+    padding: 8px;
+    height: 42px;
+    border: none;
+    margin: 0 !important;
+    box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.nav-app .dropdown i{
+    font-size: 16pt;
+    padding-left: 2%;
+    color: white;
+    float: left;
+    margin-top: 2px;
+
+}
+
+.texto-navbar{
+    float: left;
+    color: white;
+    font-size: 12pt;
+    margin-left: 15px;
+    margin-top: 4px;
+    font-weight: 500;
+
+}
+.limpar-filtros{
+    float: right;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9pt;
+    margin-top: 5px;
+}
+
+.nav-tabs {
+    padding-top: 42px;
+    border-bottom: 3px solid #1f85ff !important;
+}
+
+.nav-tabs   a{
+    border-bottom: 4px solid rgba(66, 120, 255, 0);
+    color: #1f85ff;
+    font-size: 12pt;
+    font-weight: bold;
+
+
+}
+.nav-tabs  .active a{
+    color: #1f85ff !important;
+
+    border-bottom: 4px solid #4278ff;
+}
+.nav-tabs li{
+    border-bottom: 0px solid transparent !important;
+
+    background: white;
+    border-radius: 0px;
+    border-top: none;
+    text-align: center;
+    width: 50%;
+    border-right:none ;
+}
+.nav-tabs li:hover a {
+color: #1b76e2 !important;
+
+}
+.nav-tabs li:hover{
+    background: white !important;
+}
+
+.usos-descricao{
+float: left;
+width: 100%;
+    padding: 2% 2% 1% 0;
+    border-bottom: 1px solid #dfdfdf;
+
+}
+
+.usos-descricao ul{
+    float: left;
+    width: 100%;
+    padding: 0 0 0 5%;
+}
+
+.usos-descricao ul li{
+    float: left;
+    width: 40%;
+    padding: 1%;
+
+}
+
+.usos-descricao a{
+     color: #575757;
+ }
+.usos-descricao a:hover{
+    color: #575757 !important;
+}
+.usos-descricao .likm{
+    width: 60%;
+
+}
+
+.usos-descricao .km{
+    border-right: 1px solid #dfdfdf;
+    padding: 0 55% 0 0;
+
+}
+.usos-descricao i{
+    color: #ffffff;
+    background: #4388ff;
+    padding: 4px;
+    border-radius: 15px;
+}
+
+.usos-descricao .usado{
+
+    padding: 1% 0 0 0;
+
+}
+
+.iconsearch{
+    color: #5d5d5d;
+    padding: 4px;
+    border-radius: 15px;
+}
+.forms-campos{
+    float: left;
+    width: 100%;
+}
+
+.forms-campos a{
+    color: #000000;
+
+    padding: 3%;
+    border-bottom: 1px solid #c5c5c5;
+float: left;
+width: 100%;
+}
+.forms-campos a:hover{
+    color: #000000 !important;
+
+
+}
+
+.btn-submit{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+z-index: 100 !important;
+    margin-top: 10px;
+    background: #1f85ff;
+   left: 0;
+    padding: 3% !important;
+    border-radius: 0 !important;
+    color: white !important;
+    font-size: 12pt !important;
+}
+.menu-open{
+    opacity: 0.55 !important;
+}
+.nav-mobile{
+    display: none;
+
+     position: absolute;
+left: 0;
+    top: 0;
+    float: left;
+    width: 75%;
+    z-index: 100000000000000000000000 !important;
+    overflow-y: scroll;
+
+
+ }
+.nav-mobile ul{
+     background: #181818;
+     padding: 1%;
+    z-index: 100000 !important;
+    height: 1000px;
+
+
+}
+
+.nav-mobile ul li{
+    padding: 6%;
+    z-index: 100000 !important;
+
+    border-bottom: 1px solid #262626;
+
+}
+
+.nav-mobile ul li a {
+    color: #e2e2e2;
+    font-size: 12pt;
+}
+.nav-mobile ul h6 {
+    color: whitesmoke;
+    padding-left: 4%;
+    font-size: 7pt;
+    padding-top: 1.5%;
+}
+
+.nav-mobile ul .noborder{
+    border-bottom: 1px solid transparent;
+
+}
+.nav-mobile .close{
+    position: absolute;
+   top: 2%;
+    right: 6%;
+    color: #ffffff !important;
+    z-index: 100000000000 !important;
+
+}
+
+.open{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.marcas{
+    background: #dadada;
+
+}
+.marcas ul{
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+}
+
+.marcas ul li{
+    background: #ffffff;
+    text-align: center;
+ border-bottom: 1px solid #cccccc;
+ border-right: 1px solid #cccccc;
+    padding: 5%;
+    width: 50%;
+    float: left;
+}
+
+
+.marcas ul li a{
+color: #686868;
+}
+.marcas ul li a:hover{
+    color: #686868 !important;
+}
+
+.marcas img{
+
+    height: 50px;
+}

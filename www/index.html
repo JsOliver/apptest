@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webcarrão</title>
+
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+
+</head>
+<body  id="body">
+
+<div class="app-active home" id="0">
+
+     <header>
+        <div class="nav-app">
+            <div class="itens">
+
+                <a href="javascript:menumobile()" class="dropdown"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+                <span class="texto-navbar" onclick="filtro(0,0,'');">Buscar</span>
+                <a href="javascript:limparfiltos();" class="limpar-filtros">LIMPAR</a>
+
+
+            </div>
+                <!-- Menu Mobile Inicio -->
+<div class="nav-mobile">
+<a href="javascript:menumobile();" class="close"><i class="glyphicon glyphicon-remove"></i></a>
+<ul>
+    <h6>COMPRAR</h6>
+    <li><a onclick="filtro(0,0,0,'');menumobile();"><i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp; Buscar</a></li>
+    <li><a><i class="glyphicon glyphicon-time"></i>&nbsp;&nbsp;Últimas Buscas</a></li>
+    <li class="noborder"><a><i class="glyphicon glyphicon-floppy-saved"></i>&nbsp;&nbsp;Buscas Salvos</a></li>
+    <h6>VENDER</h6>
+    <li><a><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;&nbsp;Criar Novo Anúncio</a></li>
+    <li class="noborder"><a><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;&nbsp;Meus Anúncios</a></li>
+    <h6>CONSUTAR</h6>
+    <li class="noborder"><a><i class="glyphicon glyphicon-inbox"></i>&nbsp;&nbsp;Catalogo 0KM</a></li>
+    <h6>CONFIGURAÇÕES</h6>
+    <li><a><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Meu Perfil</a></li>
+    <li class="noborder"><a><i class="glyphicon glyphicon-cog"></i>&nbsp;&nbsp;Ajustes e Contato</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+
+                <!-- Menu Mobile Fim -->
+
+
+
+
+
+        </div>
+
+    </header>
+    <div class="body-app">
+        <div class="carro-moto">
+            <div>
+           <!-- Nav tabs -->
+                <ul class="nav nav-tabs"   role="tablist">
+                    <li role="presentation" class="active"><a href="#carro" aria-controls="carro" role="tab" data-toggle="tab">Carro</a></li>
+                    <li role="presentation"><a href="#moto" aria-controls="moto" role="tab" data-toggle="tab">Moto</a></li>
+
+                </ul>
+
+
+
+
+            </div>
+        </div>
+
+        <br>
+
+    </div>
+    <div class="tab-content">
+
+        <div role="tabpanel" class="tab-pane active" id="carro">
+
+            <form>
+
+                <div class="usos-descricao">
+                    <ul>
+                    <li class="likm"><a class="km"> <i class="glyphicon glyphicon-ok check"></i>&nbsp; 0 Km</a></li>
+                    <li> <a class="usado"><i class="glyphicon glyphicon-ok check"></i>&nbsp;  Usado</a></li>
+               </ul>
+                </div>
+
+
+                <div class="forms-campos">
+                    <a href="javascript:filtro(1,0,0,'Estado');"><i class="glyphicon glyphicon-scale iconsearch"></i> Estado</a>
+                    <a href="javascript:filtro(1,0,1,'Cidade');"><i class="glyphicon glyphicon-scale iconsearch"></i> Cidade</a>
+                    <a href="javascript:filtro(1,0,2,'Marca');"><i class="glyphicon glyphicon-star iconsearch"></i> Marca</a>
+                    <a href="javascript:filtro(1,0,3,'Modelo');"><i class="glyphicon glyphicon-star iconsearch"></i> Modelo</a>
+                    <a href="javascript:filtro(1,0,4,'Ano');"><i class="glyphicon glyphicon-calendar iconsearch"></i> Ano</a>
+                    <a href="javascript:filtro(1,0,5,'Versão');"><i class="glyphicon glyphicon-filter iconsearch"></i> Versão</a>
+                    <a href="javascript:filtro(1,0,6,'Preço');"><i class="glyphicon glyphicon-star iconsearch"></i> Preço</a>
+                    <a href="javascript:filtro(1,0,7,'Km');"><i class="glyphicon glyphicon-scale iconsearch"></i> Km</a>
+                    <a href="javascript:filtro(1,0,8,'Cambio');"><i class="glyphicon glyphicon-scale iconsearch"></i> Cambio</a>
+                    <a href="javascript:filtro(1,0,9,'Combustível');"><i class="glyphicon glyphicon-scale iconsearch"></i> Combustível</a>
+                    <a href="javascript:filtro(1,0,10,'Portas');"><i class="glyphicon glyphicon-scale iconsearch"></i> Portas</a>
+                    <a href="javascript:filtro(1,0,11,'Cor');"><i class="glyphicon glyphicon-scale iconsearch"></i> Cor</a>
+                    <a href="javascript:filtro(1,0,12,'Final da Placa');"><i class="glyphicon glyphicon-scale iconsearch"></i> Final da Placa</a>
+                    <a href="javascript:filtro(1,0,13,'Carroceria');"><i class="glyphicon glyphicon-scale iconsearch"></i> Carroceria</a>
+
+                    <button class="btn btn-submit">Buscar</button>
+
+                </div>
+
+                </form>
+
+
+
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="moto">
+            <form>
+
+                <div class="usos-descricao">
+                    <ul>
+                        <li class="likm"><a class="km"> <i class="glyphicon glyphicon-ok check"></i>&nbsp; 0 Km</a></li>
+                        <li> <a class="usado"><i class="glyphicon glyphicon-ok check"></i>&nbsp;  Usado</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="forms-campos">
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Estado</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Cidade</a>
+                    <a href="javascript:filtro(1,1,2,'Marca');"><i class="glyphicon glyphicon-star iconsearch"></i> Marca</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-star iconsearch"></i> Modelo</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-calendar iconsearch"></i> Ano</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-filter iconsearch"></i> Versão</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-star iconsearch"></i> Preço</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Km</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Cambio</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Combustível</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Portas</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Cor</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Final da Placa</a>
+                    <a href="javascript:void(0);"><i class="glyphicon glyphicon-scale iconsearch"></i> Carroceria</a>
+
+                    <button class="btn btn-submit">Buscar</button>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+    function filtro(filtro,veiculo,busca,texto) {
+
+        $("#navgation").html('');
+        $("#body").addClass("opacity");
+
+        if(busca == 2){
+            $("#navgation").load('http://webcarrao.com.br/aplicativo/pages/estado.php?filtro='+filtro+'&veiculo='+veiculo+'&busca='+busca+'&texto='+texto+'');
+        }
+        if(busca == 2){
+        $("#navgation").load('http://webcarrao.com.br/aplicativo/pages/marca.php?filtro='+filtro+'&veiculo='+veiculo+'&busca='+busca+'&texto='+texto+'');
+        }
+        $(".app-active").addClass("app");
+        $(".app-active").removeClass("app-active");
+        $("#"+filtro+"").removeClass("app");
+        $("#"+filtro+"").addClass("app-active");
+        $("#body").removeClass("opacity");
+
+        $("#texto-filtro").text(texto);
+
+    }
+</script>
+<div class="app filtros" id="1">
+    <header>
+        <div class="nav-app">
+            <div>
+
+                <a href="javascript:filtro(0,0,0,'');" class="dropdown"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <span class="texto-navbar" id="texto-filtro"></span>
+                <a href="javascript:filtro(0,0,0,'');" class="limpar-filtros"><i class="glyphicon glyphicon-trash icon-trash"></i></a>
+
+
+
+                <!-- Menu Mobile Inicio -->
+
+
+                <!-- Menu Mobile Fim -->
+
+
+
+
+            </div>
+        </div>
+
+    </header>
+    <div id="navgation">
+
+        
+        
+        
+</div>
+
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/npm.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</html>
