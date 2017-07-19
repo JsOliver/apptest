@@ -61,14 +61,17 @@ h6{
     border: none;
     margin: 0 !important;
     box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.35);
+    font-family: Arial !important;
+    text-shadow: none;
+    font-weight: 700 !important;
 }
 
 .nav-app .dropdown i{
-    font-size: 25pt;
+    font-size: 20pt;
     padding-left: 2%;
     color: white;
     float: left;
-    margin-top: 2px;
+    margin-top: 4px;
 
 }
 
@@ -89,7 +92,7 @@ h6{
     text-transform: uppercase;
     font-size: 9pt;
     margin-top: 14px;
-
+    text-shadow: none !important;
 }
 
 .nav-tabs {
@@ -108,6 +111,7 @@ h6{
 
 }
 .nav-tabs  .active a{
+    font-weight: bold;
 
     color: #1f85ff !important;
     border-bottom: 4px solid #4278ff;
@@ -125,7 +129,6 @@ h6{
 }
 .nav-tabs li:hover a {
 color: #1b76e2 !important;
-    font-weight: 100 !important;
 
 }
 .nav-tabs li:hover{
@@ -193,8 +196,8 @@ width: 100%;
 }
 
 .forms-campos a{
-    color: #525252 !important;
-font-weight: bold !important;
+    color: #282828 !important;
+font-weight: 500 !important;
     font-size: 12pt;
     padding: 4%;
     border-bottom: 1px solid #c5c5c5;
@@ -202,7 +205,7 @@ float: left;
 width: 100%;
 }
 .forms-campos a:hover{
-    color: #000000 !important;
+    color: #282828 !important;
 
 
 }
