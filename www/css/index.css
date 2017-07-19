@@ -9,7 +9,6 @@ body{
 }
 a{
     text-decoration: none !important;
-    font-weight: 100 !important;
 text-shadow: none !important;
 }
 select {
@@ -126,6 +125,7 @@ h6{
 }
 .nav-tabs li:hover a {
 color: #1b76e2 !important;
+    font-weight: 100 !important;
 
 }
 .nav-tabs li:hover{
@@ -193,8 +193,8 @@ width: 100%;
 }
 
 .forms-campos a{
-    color: #424242 !important;
-
+    color: #525252 !important;
+font-weight: bold !important;
     font-size: 12pt;
     padding: 4%;
     border-bottom: 1px solid #c5c5c5;
