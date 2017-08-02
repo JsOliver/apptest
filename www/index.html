@@ -488,12 +488,33 @@
         var tipo = $('.atv').val();
 
         if (tipo == 1) {
+
+            //Variaveis de busca
+
+
+          var estado =  $("#estadocar").val();
+          var cidade =  $("#cidadecar").val();
+          var marca =  $("#marcaocar").val();
+          var modelo =  $("#modelocar").val();
+          var versao =  $("#versaocar").val();
+          var ano =  $("#anocar").val();
+          var preco =  $("#precocar").val();
+          var km =  $("#kmcar").val();
+          var cambio =  $("#cambiocar").val();
+          var combustivel =  $("#combustivelcar").val();
+          var portas =  $("#portascar").val();
+          var cor =  $("#corcar").val();
+          var placa =  $("#placacar").val();
+
+
             var form = 'carrForm';
+            $('.buscar').load('https://webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=1&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&versao='+versao+'&'+ano+'&'+preco+'&km='+km+'&cambio='+cambio+'&combustivel='+combustivel+'&portas='+portas+'&cor'+cor+'&placa='+placa);
+
         } else {
             var form = 'mortform';
+            $('.buscar').load('https://webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=2');
 
         }
-        $('.buscar').load('https://webcarrao.com.br/aplicativo/pages/busca/carro_busca.php');
         $('body').addClass('opacity');
         $('.header').html('');
         $('.header').html('<span onclick="home();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
