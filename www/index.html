@@ -25,6 +25,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <script>
+
         $(document).on("pageinit", "#demo-page", function () {
 
             $(document).on("swipeleft swiperight", "#demo-page", function (e) {
@@ -152,12 +153,14 @@
 
 
                         <script>
-                            function filtro(tipo, veiculo, item, texto, depen, ultimo, ults) {
+                            function filtro(tipo, veiculo, item, texto, depen, ultimo, ults,mesag) {
 
+                                $("#myInput").val('');
+                                $("#myTable").val('');
                                 var val = $('#' + ults).val();
 
                                 if (val == '' && ultimo == 0) {
-                                    alert('Dependencia');
+                                    alert(mesag);
                                 } else {
 
                                     var filtro = [];
@@ -226,7 +229,7 @@
 
                     </span>
 
-                            <span id="cidadecarspann" onclick="filtro(1,1,2,'Cidade','cidadecar',0,'estadocar')">
+                            <span id="cidadecarspann" onclick="filtro(1,1,2,'Cidade','cidadecar',0,'estadocar','Selecione o estado')">
                        <input type="hidden" name="cidade" id="cidadecar" value="">
                         <p><i class="glyphicon glyphicon-glass"></i>Cidade <b id="textcidadecar"></b></p>
 
@@ -240,7 +243,7 @@
 
                     </span>
 
-                            <span id="modelocarspann" onclick="filtro(1,1,4,'Modelo','modelocar',0,'marcaocar');">
+                            <span id="modelocarspann" onclick="filtro(1,1,4,'Modelo','modelocar',0,'marcaocar','Escolha a marca');">
                        <input type="hidden" name="modelo" id="modelocar" value="">
                         <p><i class="glyphicon glyphicon-star-empty"></i>Modelo <b id="textmodelocar"></b></p>
 
@@ -311,7 +314,7 @@
                         <p><i class="glyphicon glyphicon-map-marker"></i>Estado <b id="textestadomoto"></b></p>
                     </span>
 
-                            <span onclick="filtro(1,2,2,'Cidade','cidademoto',0,'estadomoto')">
+                            <span onclick="filtro(1,2,2,'Cidade','cidademoto',0,'estadomoto','Selecione o estado')">
                        <input type="hidden" name="cidade" id="cidademoto" value="">
                         <p><i class="glyphicon glyphicon-glass"></i>Cidade <b id="textcidademoto"></b></p>
                     </span>
@@ -321,7 +324,7 @@
                         <p><i class="glyphicon glyphicon-asterisk"></i>Marca <b id="textmarcamoto"></b></p>
                     </span>
 
-                            <span onclick="filtro(1,2,4,'Modelo','modelomoto',0,'marcamoto');">
+                            <span onclick="filtro(1,2,4,'Modelo','modelomoto',0,'marcamoto','Escolha a marca');">
                        <input type="hidden" name="modelo" id="modelomoto" value="">
                         <p><i class="glyphicon glyphicon-star-empty"></i>Modelo <b id="textmodelomoto"></b></p>
                     </span>
@@ -516,7 +519,7 @@
 
 
     function veiculoload(id) {
-        $('.veiculoload').load('https://webcarrao.com.br/aplicativo/pages/veiculos/veiculo.php');
+        $('.veiculoload').load('https://webcarrao.com.br/aplicativo/pages/veiculos/veiculo.php?veiculo='+id);
 
         $('body').addClass('opacity');
         $('.header').html('');
