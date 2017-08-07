@@ -9,6 +9,7 @@ ul li{
 }
 a{
     text-decoration: none !important;
+    text-shadow:none !important ;
  }
 a:hover{
     text-decoration: none !important;
