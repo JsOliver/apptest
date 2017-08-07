@@ -104,7 +104,7 @@
               style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;"
                                                                                      class="glyphicon glyphicon-menu-hamburger"></i></span>
         <h1 onclick='$("#left-panel").panel("open");'>Buscar</h1>
-        <span style="position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;">LIMPAR</span>
+        <span onclick="limparcps();" style="position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;">LIMPAR</span>
 
 
     </div><!-- /header -->
@@ -154,6 +154,7 @@
 
                         <script>
                             function filtro(tipo, veiculo, item, texto, depen, ultimo, ults,mesag) {
+                                filtroclose();
 
                                 $("#myInput").val('');
                                 $("#myTable").val('');
@@ -173,7 +174,10 @@
                                         filtro[5] = 'versao.php';
                                         filtro[6] = 'cambio.php';
                                         filtro[7] = 'combustiveis.php';
-                                        $('#myTable').load('https://webcarrao.com.br/aplicativo/pages/filtros/carro/' + filtro[item] + '?param=' + val);
+                                        filtro[8] = 'porta.php';
+                                        filtro[9] = 'cor.php';
+                                        filtro[10] = 'placa.php';
+                                        $('#myTable').load('https://site.webcarrao.com.br/aplicativo/pages/filtros/carro/' + filtro[item] + '?param=' + val);
 
                                     } else {
                                         filtro[1] = 'estado.php';
@@ -183,7 +187,8 @@
                                         filtro[5] = 'versao.php';
                                         filtro[6] = 'cambio.php';
                                         filtro[7] = 'combustiveis.php';
-                                        $('#myTable').load('https://webcarrao.com.br/aplicativo/pages/filtros/moto/' + filtro[item] + '?param=' + val);
+                                        filtro[8] = 'cor.php';
+                                        $('#myTable').load('https://site.webcarrao.com.br/aplicativo/pages/filtros/moto/' + filtro[item] + '?param=' + val);
 
                                     }
 
@@ -202,6 +207,48 @@
                                     }, 1000);
 
                                 }
+                            }
+
+                            var idf2 = '';
+                          function filtro2(tipo,item,id,texto){
+                              idf2 = id;
+
+                            $('.acttion').text('');
+                              if($('.body-app').hasClass('opacity')){
+                                  $('.body-app').removeClass('opacity');
+
+                              }else{
+                                  var array = [];
+                                  if(tipo == 1){
+                                      array[1] = 'ano.php';
+                                      array[2] = 'preco.php';
+                                      array[3] = 'km.php';
+                                      array[4] = 'placa.php';
+                                      $('.acttion').load('https://site.webcarrao.com.br/aplicativo/pages/filtros/carro/box/' + array[item] + '');
+
+                                  }else{
+
+                                      array[1] = 'ano.php';
+                                      array[2] = 'preco.php';
+                                      array[3] = 'km.php';
+                                      array[4] = 'placa.php';
+                                      $('.acttion').load('https://site.webcarrao.com.br/aplicativo/pages/filtros/moto/box/' + array[item] + '');
+
+                                  }
+
+
+
+                                  $('.body-app').addClass('opacity');
+
+                              }
+                              $("#titleff").text(texto);
+                              $('#filtrosemp').fadeToggle('fast');
+                            }
+                            function filtroclose() {
+                                $('#filtrosemp').hide('fast');
+                                $('.body-app').removeClass('opacity');
+
+
                             }
                         </script>
 
@@ -250,29 +297,30 @@
 
                     </span>
 
-                            <span>
+                            <span onclick="filtro2('1','1','anocar','Ano');">
                        <input type="hidden" name="ano" id="anocar" value="">
-                        <p><i class="glyphicon glyphicon-calendar"></i>Ano</p>
+                        <p><i class="glyphicon glyphicon-calendar"></i>Ano <b id="textanocar"></b></p>
                     </span>
 
-                            <span onclick="filtro(1,1,5,'Versão','versaocar',0,'modelocar');">
+                            <span onclick="filtro(1,1,5,'Versão','versaocar',0,'modelocar','Escolha o modelo');">
                        <input type="hidden" name="versao" id="versaocar" value="">
                         <p><i class="glyphicon glyphicon-filter"></i>Versão <b id="textversaocar"></b></p>
 
 
                     </span>
 
-                            <span>
+                            <span onclick="filtro2('1','2','precocar','Preço');">
                        <input type="hidden" name="preco" id="precocar" value="">
-                        <p><i class="glyphicon glyphicon-credit-card"></i>Preço</p>
+                        <p><i class="glyphicon glyphicon-credit-card"></i>Preço <b id="textprecocar"></b></p>
                     </span>
 
-                            <span>
+                            <span onclick="filtro2('1','3','kmcar','Km');">
                        <input type="hidden" name="km" id="kmcar" value="">
-                        <p><i class="glyphicon glyphicon-dashboard"></i>Km</p>
+                        <p><i class="glyphicon glyphicon-dashboard"></i>Km <b id="textkmcar"></b></p>
+
                     </span>
 
-                            <span onclick="filtro(1,1,6,'Cambio','cambiocar',0,'modelocar');">
+                            <span onclick="filtro(1,1,6,'Cambio','cambiocar',0,'modelocar','Escolha o modelo');">
                        <input type="hidden" name="cambio" id="cambiocar" value="">
                         <p><i class="glyphicon glyphicon-random"></i>Câmbio <b id="textcambiocar"></b></p>
                     </span>
@@ -282,19 +330,19 @@
                         <p><i class="glyphicon glyphicon-scale"></i>Combustível <b id="textcombustivelcar"></b></p>
                     </span>
 
-                            <span>
+                            <span onclick="filtro(1,1,8,'Portas','portascar',1,'');">
                        <input type="hidden" name="cambio" id="portascar" value="">
-                        <p><i class="glyphicon glyphicon-share-alt"></i>Portas</p>
+                        <p><i class="glyphicon glyphicon-share-alt"></i>Portas <b id="textportascar"></b></p>
                     </span>
 
-                            <span>
+                            <span onclick="filtro(1,1,9,'Cor','corcar',1,'');">
                        <input type="hidden" name="cor" id="corcar" value="">
-                        <p><i class="glyphicon glyphicon-tint"></i>Cor</p>
+                        <p><i class="glyphicon glyphicon-tint"></i>Cor <b id="textcorcar"></b></p>
                     </span>
 
-                            <span>
+                            <span onclick="filtro2('1','4','placacar','Fim da Placa');">
                        <input type="hidden" name="placa" id="placacar" value="">
-                        <p><i class="glyphicon glyphicon-eye-open"></i>Final da Placa</p>
+                        <p><i class="glyphicon glyphicon-eye-open"></i>Final da Placa <b id="textplacacar"></b></p>
                                 <br>
                                 <br>
 
@@ -329,33 +377,33 @@
                         <p><i class="glyphicon glyphicon-star-empty"></i>Modelo <b id="textmodelomoto"></b></p>
                     </span>
 
-                            <span>
+                            <span onclick="filtro2('2','1','anomoto','Ano');">
                        <input type="hidden" name="ano" id="anomoto" value="">
                         <p><i class="glyphicon glyphicon-calendar"></i>Ano
-
+<b id="textanomoto"></b>
                         </p>
                     </span>
 
 
-                            <span>
+                            <span onclick="filtro2('2','2','precomoto','Preço');">
                        <input type="hidden" name="preco" id="precomoto" value="">
-                        <p><i class="glyphicon glyphicon-credit-card"></i>Preço</p>
+                        <p><i class="glyphicon glyphicon-credit-card"></i>Preço <b id="textprecomoto"></b></p>
                     </span>
 
-                            <span>
+                            <span onclick="filtro2('2','3','kmmoto','Km');">
                        <input type="hidden" name="km" id="kmmoto" value="">
-                        <p><i class="glyphicon glyphicon-dashboard"></i>Km</p>
+                        <p><i class="glyphicon glyphicon-dashboard"></i>Km <b id="textkmmoto"></b></p>
                     </span>
 
 
-                            <span>
+                            <span onclick="filtro(1,2,8,'Cor','cormoto',1,'cormoto');">
                        <input type="hidden" name="cor" id="cormoto" value="">
-                        <p><i class="glyphicon glyphicon-tint"></i>Cor</p>
+                        <p><i class="glyphicon glyphicon-tint"></i>Cor <b id="textcormoto"></b></p>
                     </span>
 
-                            <span>
+                            <span  onclick="filtro2('2','4','placamoto','Final da Placa');">
                        <input type="hidden" name="placa" id="placamoto" value="">
-                        <p><i class="glyphicon glyphicon-eye-open"></i>Final da Placa</p>
+                        <p><i class="glyphicon glyphicon-eye-open"></i>Final da Placa <b id="textplacamoto"></b></p>
                                    <br>
                                 <br>
                     </span>
@@ -403,6 +451,56 @@
 
         </d5>
 
+        <d6 class="enviarproposta app">
+
+            <style>
+                .formsend{
+                    background: white;
+                    padding: 5%;
+                }
+
+                .ui-shadow-inset{
+                    border-bottom: 1px solid #999999 !important;
+
+                }
+                .ui-input-text{
+                    background: none !important;
+
+                }
+                .formsend input{
+                    background: none;
+                    border-bottom: 2px solid #999999;
+                }
+                .formsend textarea.ui-input-text
+                {
+                    position: relative !important;
+                    height:150px !important;
+                    resize: none !important;
+                }
+
+              .formsend  #ppenv {
+
+                }
+                </style>
+            <br>
+
+            <div class="formsend">
+
+                <input type="text" name="nome" id="nome" placeholder="Nome" />
+
+                <input type="text" name="email" id="email" placeholder="Email" />
+
+                <input type="text" name="telefone" id="telefone" placeholder="Telefone"/>
+
+            </div>
+            <br>
+
+            <div class="formsend">
+                    <span>Mensagem</span>
+               <textarea name="mensagem" id="mensagem"></textarea>
+            </div>
+
+        </d6>
     </div>
 
 
@@ -438,18 +536,127 @@
         </ul>
     </div>
     <a data-transition="slide" class="btn btn-submit app-active" onclick="buscarveiculo();">Buscar</a>
+    <style>
+        .campochose{
+            display: none;
+            position: fixed;
+            top:18%;
+            background: #fdf4ff;
+            float: left;
+            width: 70%;
+            left: 15%;
+            border: 1px solid #949494;
 
+        }
+
+        .campochose span{
+
+            color: white;
+            background: #2992cb;
+            float: left;
+            width: 100%;
+            padding: 8%;
+        }
+
+        .acttion{
+        padding: 3%;
+
+                 }
+
+        .footer-chose{
+            border-top: 1px solid #e4e4e4;
+            margin-top: 10px;
+        }
+
+        .footer-chose a{
+            text-align: center;
+
+            float: left;
+            width: 50%;
+            padding-top: 4%;
+
+            padding-bottom: 4%;
+            font-size: 9pt;
+            font-weight: 100;
+        }
+    </style>
+    <div class="campochose" id="filtrosemp">
+        <span id="titleff">Quilometragem</span>
+<div class="acttion">
+
+
+</div>
+        <div class="footer-chose">
+
+            <a href="javascript:filtroclose();" style="border-right: 1px solid #e4e4e4">LIMPAR</a>
+            <a href="javascript:addfiltro2();"><b>CONFIRMAR</b></a>
+        </div>
+    </div>
+<div id="ssvls">
+    </div>
 </div><!-- /page -->
 
 
 <script>
 
+
+    function sendprops(veiculo) {
+        var nome = $("#nome").val();
+        var telefone = $("#telefone").val();
+        var email = $("#email").val();
+        var mensagem = $("#mensagem").val();
+
+
+
+
+        if(nome !== "" && telefone !== "" && email !== "" && mensagem !== ""){
+            if (((email.indexOf("@") >0) && (email.indexOf('.') >0)))
+            {
+                $.post("https://site.webcarrao.com.br/aplicativo/pages/proposta/enviar.php",{nome:nome,email:email,telefone:telefone,mensagem:mensagem,veiculo:veiculo},function (res) {
+                    if(res == 11){
+                        alert('Proposta enviada com sucesso.');
+                        veiculoload(veiculo);
+                    }else{
+                        alert(res);
+                    }
+                });
+            }else{
+                alert('Email incorreto');
+                $("#email").focus();
+            }
+
+        }else{
+            alert('Preencha todos os campos');
+        }
+
+
+    }
+    function addfiltro2() {
+        var value1 = $("#valueex").val();
+        var value2 = $("#valueex2").val();
+
+        if(idf2 !== 'placacar' && idf2 !== 'placamoto'){
+            var dado = value1+'|||'+value2;
+            var text = value1+' até '+value2;
+        }else{
+            var dado = value1;
+            var text = value1;
+        }
+
+        $("#" + idf2).val(dado);
+        $("#text" + idf2).text(text);
+        filtroclose();
+
+    }
+
     function home() {
+        $('#ssvls').html('');
+        filtroclose();
         $('body').addClass('opacity');
 
         $('.header').html('<span onclick="openmenu();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-menu-hamburger"></i></span>' +
                 '<h5 onclick="openmenu();" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buscar</h5>' +
-                '<span style="position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;">LIMPAR</span>');
+                '<span onclick="limparcps();" style="position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;">LIMPAR</span>');
         $('.app-active').addClass('app');
         $('.app-active').removeClass('app-active');
 
@@ -466,14 +673,53 @@
         }, 1000);
     }
 
+    function proposta(veiculo) {
+        filtroclose();
+        $('body').addClass('opacity');
+
+        $('.header').html('');
+        $('.header').html('<span onclick="veiculoload('+veiculo+');" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
+                '<h5 onclick="veiculoload('+veiculo+');" style="font-size: 12pt;margin-top:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enviar Proposta</h5>' );
+
+        $('.ui-panel-content-wrap').addClass('white-back');
+        $('.app-active').addClass('app');
+        $('.app-active').removeClass('app-active');
+
+        closemenu();
+        setTimeout(function () {
+            $('.enviarproposta').removeClass('app');
+
+            $('.enviarproposta').addClass('app-active');
+
+            $('body').removeClass('opacity');
+
+            $("#ssvls").html('<a href="javascript:sendprops('+veiculo+')" id="ppenv" style=" color: #2489ce !important; font-weight: 700 !important; position: fixed !important;bottom: 0 !important; float: left !important; width: 100% !important;text-align: center !important; background: white !important; padding: 4% !important;">Enviar proposta</a>');
+
+        }, 1000);
+    }
+
+
+    function limparcps() {
+
+        $("form b").text("");
+        $("input").val("");
+        $(".car ").val(1);
+        $(".mot ").val(2);
+        $('#ssvls').html('');
+
+    }
     function buscascogs(tipo, text) {
+        $('#ssvls').html('');
+
+        filtroclose();
+
         $('.ui-panel-content-wrap').addClass('white-back');
 
         $('.header').html('');
 
         $('.header').html('<span onclick="openmenu();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-menu-hamburger"></i></span>' +
                 '<h5 onclick="openmenu();" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + text + '</h5>' +
-                '<span style="position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;">LIMPAR</span>');
+                '<span onclick="limparcps();" style="position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;">LIMPAR</span>');
 
         $('.app-active').addClass('app');
         $('.app-active').removeClass('app-active');
@@ -484,6 +730,7 @@
         closemenu();
     }
     function buscarveiculo() {
+        filtroclose();
 
         var tipo = $('.atv').val();
 
@@ -493,26 +740,63 @@
 
 
           var estado =  $("#estadocar").val();
-          var cidade =  $("#cidadecar").val();
-          var marca =  $("#marcaocar").val();
-          var modelo =  $("#modelocar").val();
-          var versao =  $("#versaocar").val();
-          var ano =  $("#anocar").val();
-          var preco =  $("#precocar").val();
-          var km =  $("#kmcar").val();
-          var cambio =  $("#cambiocar").val();
-          var combustivel =  $("#combustivelcar").val();
-          var portas =  $("#portascar").val();
-          var cor =  $("#corcar").val();
-          var placa =  $("#placacar").val();
 
+          var cidade =  $("#cidadecar").val();
+            cidade = cidade.replace(' ','%20');
+          var marca =  $("#marcaocar").val();
+            marca = marca.replace(' ','%20');
+          var modelo =  $("#modelocar").val();
+            modelo = modelo.replace(' ','%20');
+            var versao =  $("#versaocar").val();
+            versao = versao.replace(' ','%20');
+            var ano =  $("#anocar").val();
+            ano = ano.replace(' ','%20');
+            var preco =  $("#precocar").val();
+            preco = preco.replace(' ','%20');
+            var km =  $("#kmcar").val();
+            km = km.replace(' ','%20');
+            var cambio =  $("#cambiocar").val();
+            cambio = cambio.replace(' ','%20');
+            var combustivel =  $("#combustivelcar").val();
+            combustivel = combustivel.replace(' ','%20');
+            var portas =  $("#portascar").val();
+            portas = portas.replace(' ','%20');
+            var cor =  $("#corcar").val();
+            cor = cor.replace(' ','%20');
+            var placa =  $("#placacar").val();
+            placa = placa.replace(' ','%20');
 
             var form = 'carrForm';
-            $('.buscar').load('https://webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=1&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&versao='+versao+'&'+ano+'&'+preco+'&km='+km+'&cambio='+cambio+'&combustivel='+combustivel+'&portas='+portas+'&cor'+cor+'&placa='+placa);
+            $('.buscar').load('https://site.webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=1&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&versao='+versao+'&ano='+ano+'&preco='+preco+'&km='+km+'&cambio='+cambio+'&combustivel='+combustivel+'&portas='+portas+'&cor'+cor+'&placa='+placa);
 
         } else {
+
+
+            //variaveis de busca
+
+            var estado =  $("#estadomoto").val();
+
+            var cidade =  $("#cidademoto").val();
+            cidade = cidade.replace(' ','%20');
+            var marca =  $("#marcamoto").val();
+            marca = marca.replace(' ','%20');
+            var modelo =  $("#modelomoto").val();
+            modelo = modelo.replace(' ','%20');
+
+            var ano =  $("#anomoto").val();
+            ano = ano.replace(' ','%20');
+            var preco =  $("#precomoto").val();
+            preco = preco.replace(' ','%20');
+            var km =  $("#kmmoto").val();
+            km = km.replace(' ','%20');
+
+            var cor =  $("#cormoto").val();
+            cor = cor.replace(' ','%20');
+            var placa =  $("#placamoto").val();
+            placa = placa.replace(' ','%20');
+
             var form = 'mortform';
-            $('.buscar').load('https://webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=2');
+            $('.buscar').load('https://site.webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=2&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&ano='+ano+'&preco='+preco+'&km='+km+'&cor'+cor+'&placa='+placa);
 
         }
         $('body').addClass('opacity');
@@ -540,7 +824,11 @@
 
 
     function veiculoload(id) {
-        $('.veiculoload').load('https://webcarrao.com.br/aplicativo/pages/veiculos/veiculo.php?veiculo='+id);
+        $('#ssvls').html('');
+
+        filtroclose();
+
+        $('.veiculoload').load('https://site.webcarrao.com.br/aplicativo/pages/veiculos/veiculo.php?veiculo='+id);
 
         $('body').addClass('opacity');
         $('.header').html('');
@@ -566,6 +854,9 @@
     }
 
     function addfiltro(tipo, id, dado, text, depend, array) {
+        $('#ssvls').html('');
+
+        filtroclose();
 
         if (depend == 0) {
 
