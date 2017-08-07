@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Open panel on swipe - jQuery Mobile Demos</title>
+    <title>Webcarrão</title>
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
     <link rel="stylesheet" href="css/jqm-demos.css">
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -20,29 +20,52 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-    <script>
-
-        $(document).on("pageinit", "#demo-page", function () {
-
-            $(document).on("swipeleft swiperight", "#demo-page", function (e) {
-                // We check if there is no open panel on the page because otherwise
-                // a swipe to close the left panel would also open the right panel (and v.v.).
-                // We do this by checking the data that the framework stores on the page element (panel: open).
-                if ($.mobile.activePage.jqmData("panel") !== "open") {
-                    if (e.type === "swipeleft") {
-                        $("#right-panel").panel("open");
-                    } else if (e.type === "swiperight") {
-                        $("#left-panel").panel("open");
-                    }
-                }
-            });
-        });
-    </script>
     <style>
+        .veiculo .prize{
+            z-index: 10000000!important;
+            float: left;
+            left: 20px;
+            text-shadow: none;
+            color: white;
+            font-size: 12pt;
+            font-weight: bold;
+            background: #2992cb;
+            padding: 10px 40px 10px 10px;
+            border-width: 0 12px 12px 0;
+            border-radius: 0px 60px 0 0;
+            margin-top: -40px;
+
+        }
+        .buscainfo-noresult {
+            padding: 4%;
+            background: #f0f0f0;
+            color: #a7a7a7;
+
+        }
+        .buscainfo-noresult h1{
+            text-align: center;
+            font-size: 55pt;
+        }
+        .buscainfo-noresult h5 {
+            text-align: center;
+            font-weight: bold;
+        }
+        .buscainfo-noresult h6 {
+            text-align: center;
+        }
+        .opacity{
+            opacity: 0.5;
+        } .campochose{
+              display: none;
+              position: fixed;
+              top:18%;
+              background: #fdf4ff;
+              float: left;
+              width: 70%;
+              left: 15%;
+              border: 1px solid #949494;
+
+          }
 
         .app {
             display: none;
@@ -91,6 +114,36 @@
         #left-panel {
             z-index: 1 !important;
         }
+        </style>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script>
+
+        $(document).on("pageinit", "#demo-page", function () {
+
+            $(document).on("swipeleft swiperight", "#demo-page", function (e) {
+                // We check if there is no open panel on the page because otherwise
+                // a swipe to close the left panel would also open the right panel (and v.v.).
+                // We do this by checking the data that the framework stores on the page element (panel: open).
+                if ($.mobile.activePage.jqmData("panel") !== "open") {
+                    if (e.type === "swipeleft") {
+
+                        $('#carrtab').removeClass('active');
+                        $('#mototab').addClass('active');
+                    } else if (e.type === "swiperight") {
+                        $('#mototab').removeClass('active');
+                        $('#carrtab').addClass('active');
+                        $("#left-panel").panel("open");
+                    }
+                }
+            });
+        });
+    </script>
+    <style>
+
     </style>
 </head>
 <body>
@@ -121,11 +174,11 @@
                     <div>
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="position: fixed;width: 100%;">
-                            <li role="presentation" class="active">
-                                <a onclick="$('.atv').removeClass('atv');$('.car').addClass('atv');" href="#carro"
+                            <li id="carrtab" role="presentation" class="active">
+                                <a onclick="$('.atv').removeClass('atv');$('.car').addClass('atv');getCookie();" href="#carro"
                                    aria-controls="carro" role="tab"
                                    data-toggle="tab">Carro</a></li>
-                            <li role="presentation"><a onclick="$('.atv').removeClass('atv');$('.mot').addClass('atv');"
+                            <li id="mototab" role="presentation"><a onclick="$('.atv').removeClass('atv');$('.mot').addClass('atv');"
                                                        href="#moto" aria-controls="moto" role="tab" data-toggle="tab">Moto</a>
                             </li>
 
@@ -459,11 +512,11 @@
                     padding: 5%;
                 }
 
-                .ui-shadow-inset{
+                .formsend .ui-shadow-inset{
                     border-bottom: 1px solid #999999 !important;
 
                 }
-                .ui-input-text{
+                .formsend  .ui-input-text{
                     background: none !important;
 
                 }
@@ -501,6 +554,42 @@
             </div>
 
         </d6>
+
+
+        <d8 class="cadastro app">
+
+
+            <div class="formsend">
+
+                <input type="text" name="emaillog" id="nomecad" placeholder="Nome" />
+                <input type="text" name="emaillog" id="telefonecad" placeholder="Telefone" />
+                <input type="text" name="emaillog" id="celularcad" placeholder="Celular" />
+                <input type="text" name="emaillog" id="cpfcad" placeholder="CPF" />
+                <input type="text" name="emaillog" id="emailcad" placeholder="Email" />
+                <input type="password" name="senhalog" id="senhacad" placeholder="Senha"/>
+                <br>
+
+
+
+<input type="checkbox" name="termos" value="" id="termos" /><label style="color: #2992cb!important;"> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Aceito os Termos e Condições</label> <br>
+                <a href="javascript:cadastrodados();" style="color: #ffffff !important;
+    font-weight: 700 !important;
+    position: fixed !important;
+    float: left !important;
+    width: 89% !important;
+    text-align: center !important;
+    background: #2992cb !important;
+    padding: 2.5% !important;
+
+    border: 1px solid rgba(0, 0, 0, 0.17);
+
+    text-shadow: none;">Cadastrar</a>
+            </div>
+
+
+        </d8>
+
+        <d7 class="perfil app"></d7>
     </div>
 
 
@@ -519,8 +608,8 @@
             <li class="info">
                 <small>Vender</small>
             </li>
-            <li><a><i class="glyphicon glyphicon-plus-sign"></i> Criar Novo Anúncio</a></li>
-            <li><a><i class="glyphicon glyphicon-shopping-cart"></i> Meus Anúncios</a></li>
+            <li><a href="javascript:criaranuncio();"><i class="glyphicon glyphicon-plus-sign"></i> Criar Novo Anúncio</a></li>
+            <li><a href="javascript:meusanuncios();"><i class="glyphicon glyphicon-shopping-cart"></i> Meus Anúncios</a></li>
 
             <li class="info">
                 <small>Consultar</small>
@@ -530,56 +619,13 @@
             <li class="info">
                 <small>Configurações</small>
             </li>
-            <li><a><i class="glyphicon glyphicon-user"></i> Meu Perfil</a></li>
-            <li><a><i class="glyphicon glyphicon-cog"></i> Ajustes e Contato</a></li>
+            <li><a href="javascript:perfil();"><i class="glyphicon glyphicon-user"></i> Meu Perfil</a></li>
+            <li style="display: none;"><a href="javascript:configuracao();"><i class="glyphicon glyphicon-cog"></i> Ajustes e Contato</a></li>
 
         </ul>
     </div>
     <a data-transition="slide" class="btn btn-submit app-active" onclick="buscarveiculo();">Buscar</a>
-    <style>
-        .campochose{
-            display: none;
-            position: fixed;
-            top:18%;
-            background: #fdf4ff;
-            float: left;
-            width: 70%;
-            left: 15%;
-            border: 1px solid #949494;
 
-        }
-
-        .campochose span{
-
-            color: white;
-            background: #2992cb;
-            float: left;
-            width: 100%;
-            padding: 8%;
-        }
-
-        .acttion{
-        padding: 3%;
-
-                 }
-
-        .footer-chose{
-            border-top: 1px solid #e4e4e4;
-            margin-top: 10px;
-        }
-
-        .footer-chose a{
-            text-align: center;
-
-            float: left;
-            width: 50%;
-            padding-top: 4%;
-
-            padding-bottom: 4%;
-            font-size: 9pt;
-            font-weight: 100;
-        }
-    </style>
     <div class="campochose" id="filtrosemp">
         <span id="titleff">Quilometragem</span>
 <div class="acttion">
@@ -598,6 +644,150 @@
 
 
 <script>
+function cadastrodados() {
+    var nome = $("#nomecad").val();
+    var email = $("#emailcad").val();
+    var cpf = $("#cpfcad").val();
+    var tel = $("#telefonecad").val();
+    var cel = $("#celularcad").val();
+    var pass = $("#senhacad").val();
+
+    $.post("https://site.webcarrao.com.br/aplicativo/pages/perfil/ajax/cadastrar.php",{nome:nome,email:email,cpf:cpf,tel:tel,cel:cel,pass:pass},function (res) {
+
+        if(res > 0){
+            perfil();
+        }else{
+            alert('Erro ao cadastrar, tente novamente.');
+        }
+
+
+    });
+}
+
+    function alterardados(user) {
+
+        var nome = $("#nomejlog").val();
+        var email = $("#emailjlog").val();
+        var cpf = $("#cpfjlog").val();
+        var tel = $("#telefonejlog").val();
+        var cel = $("#celularjlog").val();
+        var pass = $("#senhajlog").val();
+
+        $.post("https://site.webcarrao.com.br/aplicativo/pages/perfil/ajax/altera.php",{nome:nome,email:email,cpf:cpf,tel:tel,cel:cel,pass:pass,user:user},function (res) {
+
+            if(res == 11){
+                alert('Salvo com sucesso.');
+
+                perfil();
+
+            }else{
+
+                alert(res);
+            }
+
+
+        });
+
+    }
+
+    function logout() {
+        window.localStorage.removeItem("logado");
+        perfil();
+
+    }
+    function checklogs() {
+
+        var value = window.localStorage.getItem("logado");
+        if(value){
+
+
+            if(value > 0){
+                return true;
+
+            }else{
+                return false;
+
+            }
+        }else{
+            return false;
+        }
+    }
+    function checklogsval() {
+        var value = window.localStorage.getItem("logado");
+        return value;
+
+    }
+
+
+    function logar() {
+
+        var email = $("#emaillog").val();
+        var senha = $("#senhalog").val();
+
+        $.post("https://site.webcarrao.com.br/aplicativo/pages/perfil/ajax/login.php",{email:email,senha:senha},function (res) {
+            if(res > 0){
+
+                localStorage.setItem('logado', res);
+                home();
+            }else{
+                alert('Email ou senha incorretos.');
+            }
+
+        });
+
+    }
+
+    function perfil() {
+
+        if(checklogs() == true){
+
+            var value = checklogsval();
+            $('.perfil').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/minha_conta.php?user='+value);
+
+        }else{
+            $('.perfil').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/minha_conta.php');
+
+        }
+        $('#ssvls').html('');
+        filtroclose();
+        $('body').addClass('opacity');
+
+        $('.header').html('');
+        $('.header').html('<span onclick="home();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
+                '<h5 onclick="home();" style="font-size: 12pt;margin-top:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meu perfil</h5>' );
+        $('.app-active').addClass('app');
+        $('.app-active').removeClass('app-active');
+        closemenu();
+        $('.ui-panel-content-wrap').removeClass('white-back');
+
+        setTimeout(function () {
+            $('.perfil').removeClass('app');
+            $('.perfil').addClass('app-active');
+            $('body').removeClass('opacity');
+
+        }, 1000);
+    }
+    function cadastro() {
+
+        $('#ssvls').html('');
+        filtroclose();
+        $('body').addClass('opacity');
+
+        $('.header').html('');
+        $('.header').html('<span onclick="perfil();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
+                '<h5 onclick="perfil();" style="font-size: 12pt;margin-top:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cadastrar</h5>' );
+        $('.app-active').addClass('app');
+        $('.app-active').removeClass('app-active');
+        closemenu();
+        $('.ui-panel-content-wrap').removeClass('white-back');
+
+        setTimeout(function () {
+            $('.cadastro').removeClass('app');
+            $('.cadastro').addClass('app-active');
+            $('body').removeClass('opacity');
+
+        }, 1000);
+    }
 
 
     function sendprops(veiculo) {
@@ -649,6 +839,8 @@
 
     }
 
+
+
     function home() {
         $('#ssvls').html('');
         filtroclose();
@@ -676,7 +868,12 @@
     function proposta(veiculo) {
         filtroclose();
         $('body').addClass('opacity');
+        if(checklogs() == true){
 
+            var value = checklogsval();
+            $('.enviarproposta').load('https://site.webcarrao.com.br/aplicativo/pages/proposta/quadro.php?user='+value);
+
+        }
         $('.header').html('');
         $('.header').html('<span onclick="veiculoload('+veiculo+');" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
                 '<h5 onclick="veiculoload('+veiculo+');" style="font-size: 12pt;margin-top:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enviar Proposta</h5>' );
