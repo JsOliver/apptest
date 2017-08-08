@@ -61,8 +61,8 @@
               top:18%;
               background: #fdf4ff;
               float: left;
-              width: 70%;
-              left: 15%;
+              width: 90%;
+              left: 5%;
               border: 1px solid #949494;
 
           }
@@ -131,12 +131,90 @@
                 if ($.mobile.activePage.jqmData("panel") !== "open") {
                     if (e.type === "swipeleft") {
 
+if($(".meus-anuncios").hasClass('app-active')){
+
+    $('#carrtaban').removeClass('active');
+    $('#mototaban').addClass('active');
+
+    $('#carroan').removeClass('active');
+
+    $('#motoan').addClass('active');
+    $('#motoan').addClass('in');
+
+}
+
+                        if($(".home").hasClass('app-active')){
+
+
                         $('#carrtab').removeClass('active');
                         $('#mototab').addClass('active');
+                        $('#carro').removeClass('active');
+                        $('#moto').addClass('active');
+                        $('#moto').addClass('in');
+                        $('.atv').removeClass('atv');
+                        $('.mot').addClass('atv');
+
+
+                        }
+
+
                     } else if (e.type === "swiperight") {
-                        $('#mototab').removeClass('active');
-                        $('#carrtab').addClass('active');
-                        $("#left-panel").panel("open");
+
+                        if($(".meus-anuncios").hasClass('app-active')){
+
+                            $('#carrtaban').addClass('active');
+                            $('#mototaban').removeClass('active');
+                            $('#carroan').addClass('active');
+                            $('#carroan').addClass('in');
+                            $('#motoan').removeClass('active');
+
+                        }
+
+                        if($(".home").hasClass('app-active')) {
+
+                            $('.atv').removeClass('atv');
+                            $('.car').addClass('atv');
+                            $('#mototab').removeClass('active');
+
+                        }
+
+                        if($('#carrtaban').hasClass('active')){
+
+                            if($(".meus-anuncios").hasClass('app-active')){
+                                $("#left-panel").panel("open");
+                            }
+
+                        }
+
+                        if($('#carrtabanad').hasClass('active')){
+
+                            if($(".criar-anuncio").hasClass('app-active')){
+                                $("#left-panel").panel("open");
+                            }
+
+                        }
+
+
+                   if($('#carrtab').hasClass('active')){
+
+                            if($(".home").hasClass('app-active') || $(".buscartags").hasClass('app-active')){
+                                $("#left-panel").panel("open");
+                            }
+
+                        } else {
+
+                       if($(".home").hasClass('app-active')) {
+
+                           $('#mototab').removeClass('active');
+                           $('#carrtab').addClass('active');
+                           $('#moto').removeClass('active');
+                           $('#carro').addClass('active');
+                           $('#carro').addClass('in');
+
+                       }
+
+                        }
+
                     }
                 }
             });
@@ -175,7 +253,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs" role="tablist" style="position: fixed;width: 100%;">
                             <li id="carrtab" role="presentation" class="active">
-                                <a onclick="$('.atv').removeClass('atv');$('.car').addClass('atv');getCookie();" href="#carro"
+                                <a onclick="$('.atv').removeClass('atv');$('.car').addClass('atv');" href="#carro"
                                    aria-controls="carro" role="tab"
                                    data-toggle="tab">Carro</a></li>
                             <li id="mototab" role="presentation"><a onclick="$('.atv').removeClass('atv');$('.mot').addClass('atv');"
@@ -202,7 +280,7 @@
 
                     <input type="hidden" class="car atv" value="1"/>
                     <input type="hidden" class="mot" value="2"/>
-                    <div role="tabpanel" class="tab-pane active" id="carro">
+                    <div role="tabpanel" class="tab-pane  fade in active" id="carro">
 
 
                         <script>
@@ -406,7 +484,7 @@
 
 
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="moto">
+                    <div role="tabpanel" class="tab-pane  fade in" id="moto">
                         <form id="mortForm">
 
 
@@ -590,8 +668,131 @@
         </d8>
 
         <d7 class="perfil app"></d7>
+
+
+        <style>
+            .anuncioadd{
+                text-align: center;
+                float: left;
+                width: 90%;
+                background: white;
+                padding: 2.5%;
+                margin-left: 5%;
+                border: 1px solid #c6c6c6;
+            }
+        </style>
+        <d8 class="meus-anuncios app">
+
+            <div style="margin-top: 9px">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" style="position: fixed;width: 100%;">
+                    <li id="carrtaban" role="presentation" class="active">
+                        <a  href="#carroan"
+                            aria-controls="carroan" role="tab"
+                            data-toggle="tab">Carro</a></li>
+                    <li id="mototaban" role="presentation"><a href="#motoan" aria-controls="motoan" role="tab" data-toggle="tab">Moto</a>
+                    </li>
+
+                </ul>
+
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="carroan">
+                        <br>
+                        <br>
+                        <br>
+
+                        <a href="javascript:criaranuncio(1,1);" class="anuncioadd">Criar novo anuncio</a>
+                        <br>
+                        <br>  <br>
+                        <br>
+                        <div class="buscainfo-noresult">
+                            <h1><i class="glyphicon glyphicon-search"></i></h1>
+                            <h5>Nenhuma Anuncio encontrado</h5>
+                            <h6>Desculpe nenhum anuncio foi encontrado.</h6>
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade in" id="motoan">
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <a href="javascript:criaranuncio(2,1);" class="anuncioadd">Criar novo anuncio</a>
+
+                        <br>
+                        <br><br>
+                        <br>
+                        <div class="buscainfo-noresult">
+                            <h1><i class="glyphicon glyphicon-search"></i></h1>
+                            <h5>Nenhuma Anuncio encontrado</h5>
+                            <h6>Desculpe nenhum anuncio foi encontrado.</h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </d8>
+
+        <style>
+            .tab-content  .tipochose span{
+                padding: 5px;
+            }
+            .tipochose{
+                margin-bottom: 20px;
+                float: left;
+                width: 95%;
+                margin-left: 3%;
+            }
+            .tipochose b{
+                text-align: center;
+                font-size: 13pt;
+                background: #1b76e2;
+                padding: 2%;
+                color: white;
+                float: left;
+                width: 100%;
+            }
+            .tipochose .info .botao{
+                margin-top: 4px;
+            }
+            .tipochose .info{
+
+                text-align: center;
+                font-size: 11pt;
+                background: white;
+                padding: 2%;
+                color: #1b76e2;
+                float: left;
+                width: 100%;
+            }
+            .corpo{
+                font-size: 10pt;
+                background: white;
+                padding: 1%;
+                color: #1b76e2;
+                float: left;
+                width: 100%;
+                text-align: center;
+            }
+        </style>
+        <d9 class="criar-anuncio app">
+
+
+
+
+        </d9>
     </div>
 
+    <style>
+        .campochose {
+            background: white !important;
+
+        }
+        </style>
 
     <div class="left-pannel" data-role="panel" id="left-panel">
 
@@ -608,7 +809,7 @@
             <li class="info">
                 <small>Vender</small>
             </li>
-            <li><a href="javascript:criaranuncio();"><i class="glyphicon glyphicon-plus-sign"></i> Criar Novo Anúncio</a></li>
+            <li><a href="javascript:criaranuncio(1,1);"><i class="glyphicon glyphicon-plus-sign"></i> Criar Novo Anúncio</a></li>
             <li><a href="javascript:meusanuncios();"><i class="glyphicon glyphicon-shopping-cart"></i> Meus Anúncios</a></li>
 
             <li class="info">
@@ -624,18 +825,19 @@
 
         </ul>
     </div>
-    <a data-transition="slide" class="btn btn-submit app-active" onclick="buscarveiculo();">Buscar</a>
+    <a data-transition="slide" class="btn btn-submit app-active" onclick="buscarveiculo();" style="font-weight: 600 !important;
+">Buscar</a>
 
     <div class="campochose" id="filtrosemp">
         <span id="titleff">Quilometragem</span>
-<div class="acttion">
+<div class="acttion" style="background: white;">
 
 
 </div>
-        <div class="footer-chose">
+        <div class="footer-chose" style="background: white;">
 
-            <a href="javascript:filtroclose();" style="border-right: 1px solid #e4e4e4">LIMPAR</a>
-            <a href="javascript:addfiltro2();"><b>CONFIRMAR</b></a>
+            <a href="javascript:filtroclose();" style="border-right: 1px solid #e4e4e4;background: white;">LIMPAR</a>
+            <a href="javascript:addfiltro2();" style="background: white;"><b>CONFIRMAR</b></a>
         </div>
     </div>
 <div id="ssvls">
@@ -644,6 +846,76 @@
 
 
 <script>
+
+function criaranuncio(veiculo,partes) {
+    if(checklogs() == true) {
+        var value = checklogsval();
+
+        var parte = [];
+
+        parte[1] = 'parte1.php';
+        parte[2] = 'parte2.php';
+        parte[3] = 'parte3.php';
+
+        $('.criar-anuncio').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/addanuncio/'+parte[partes]+'?user='+value+'&veiculo='+veiculo);
+
+        $('.ui-panel-content-wrap').addClass('white-back');
+
+        $('#ssvls').html('');
+        filtroclose();
+        $('body').addClass('opacity');
+
+        $('.header').html('<span onclick="openmenu();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-menu-hamburger"></i></span>' +
+                '<h5 onclick="openmenu();" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criar Novo Anúncio</h5>');
+        $('.app-active').addClass('app');
+        $('.app-active').removeClass('app-active');
+
+
+        closemenu();
+        setTimeout(function () {
+            $('.criar-anuncio').removeClass('app');
+            $('.criar-anuncio').addClass('app-active');
+            $('.btn-submit').addClass('app');
+            $('.btn-submit').removeClass('app-active');
+            $('body').removeClass('opacity');
+
+        }, 1000);
+    }else{
+        perfil();
+    }
+}
+    function meusanuncios() {
+        if(checklogs() == true) {
+
+            var value = checklogsval();
+
+            $('.meus-anuncios').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/anuncios.php?user='+value);
+            $('.ui-panel-content-wrap').addClass('white-back');
+
+            $('#ssvls').html('');
+            filtroclose();
+            $('body').addClass('opacity');
+
+            $('.header').html('<span onclick="openmenu();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-menu-hamburger"></i></span>' +
+                    '<h5 onclick="openmenu();" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meus Anúncios</h5>');
+            $('.app-active').addClass('app');
+            $('.app-active').removeClass('app-active');
+
+
+            closemenu();
+            setTimeout(function () {
+                $('.meus-anuncios').removeClass('app');
+                $('.meus-anuncios').addClass('app-active');
+                $('.btn-submit').addClass('app');
+                $('.btn-submit').removeClass('app-active');
+                $('body').removeClass('opacity');
+
+            }, 1000);
+
+        }else{
+            perfil();
+        }
+    }
 function cadastrodados() {
     var nome = $("#nomecad").val();
     var email = $("#emailcad").val();
@@ -964,7 +1236,7 @@ function cadastrodados() {
             placa = placa.replace(' ','%20');
 
             var form = 'carrForm';
-            $('.buscar').load('https://site.webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=1&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&versao='+versao+'&ano='+ano+'&preco='+preco+'&km='+km+'&cambio='+cambio+'&combustivel='+combustivel+'&portas='+portas+'&cor'+cor+'&placa='+placa);
+            $('.buscar').load('https://site.webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=1&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&versao='+versao+'&ano='+ano+'&preco='+preco+'&km='+km+'&cambio='+cambio+'&combustivel='+combustivel+'&portas='+portas+'&cor='+cor+'&placa='+placa);
 
         } else {
 
@@ -993,7 +1265,7 @@ function cadastrodados() {
             placa = placa.replace(' ','%20');
 
             var form = 'mortform';
-            $('.buscar').load('https://site.webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=2&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&ano='+ano+'&preco='+preco+'&km='+km+'&cor'+cor+'&placa='+placa);
+            $('.buscar').load('https://site.webcarrao.com.br/aplicativo/pages/busca/carro_busca.php?tipo=2&estado='+estado+'&cidade='+cidade+'&marca='+marca+'&modelo='+modelo+'&ano='+ano+'&preco='+preco+'&km='+km+'&cor='+cor+'&placa='+placa);
 
         }
         $('body').addClass('opacity');
