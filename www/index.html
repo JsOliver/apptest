@@ -301,7 +301,14 @@ if($(".meus-anuncios").hasClass('app-active')){
                                 var val = $('#' + ults).val();
 
                                 if (val == '' && ultimo == 0) {
-                                    alert(mesag);
+                                    navigator.notification.alert(
+                                            mesag,  // message
+                                            alertDismissed,         // callback
+                                            '',            // title
+                                            'OK'                  // buttonName
+                                    );
+
+                                    //alert(mesag);
                                 } else {
 
                                     var filtro = [];
@@ -857,6 +864,7 @@ if($(".meus-anuncios").hasClass('app-active')){
 <script>
 
 function criaranuncio(veiculo,partes) {
+
     if(checklogs() == true) {
         var value = checklogsval();
 
