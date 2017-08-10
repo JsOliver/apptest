@@ -219,6 +219,15 @@ if($(".meus-anuncios").hasClass('app-active')){
                 }
             });
         });
+
+
+
+
+        $(document).on('backbutton',
+                function(e){
+                    e.preventDefault();
+                   alert('ok');
+                });
     </script>
     <style>
 
@@ -861,12 +870,29 @@ function criaranuncio(veiculo,partes) {
 
         $('.ui-panel-content-wrap').addClass('white-back');
 
+
+        if(partes == 2){
+            $('.ui-panel-content-wrap').removeClass('white-back');
+
+        }
         $('#ssvls').html('');
         filtroclose();
         $('body').addClass('opacity');
-
+        if(partes == 1){
         $('.header').html('<span onclick="openmenu();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-menu-hamburger"></i></span>' +
-                '<h5 onclick="openmenu();" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criar Novo Anúncio</h5>');
+                '<h5 onclick="openmenu();" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criar Novo Anúncio</h5>');}
+
+
+        if(partes == 2){
+            if(veiculo == 1){
+                var veic = 'Carro';
+            }else{
+                var veic = 'Moto';
+
+            }
+
+            $('.header').html('<span onclick="criaranuncio('+veiculo+',1);" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
+                    '<h5 onclick="criaranuncio('+veiculo+',1);" style="font-size: 12pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Criar Novo Anúncio de '+veic+'</h5>');}
         $('.app-active').addClass('app');
         $('.app-active').removeClass('app-active');
 
@@ -1335,6 +1361,21 @@ function cadastrodados() {
             home();
         }
     }
+
+function addfiltroad(tipo, id, dado, text, depend, array) {
+    $('#ssvls').html('');
+
+    filtroclose();
+
+    if (depend == 0) {
+
+    } else {
+        criaranuncio(1,1);
+        $("#" + id).val(dado);
+        $("#text" + id).text(text);
+
+    }
+}
 
     function openmenu() {
         $("#left-panel").panel("open");
