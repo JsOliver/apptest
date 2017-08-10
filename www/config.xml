@@ -59,9 +59,9 @@
 <preference name="KeepRunning" value="false"/>
 <preference name="LoadUrlTimeoutValue" value="10000"/>
 <preference name="InAppBrowserStorageEnabled" value="true"/>
-<preference name="LoadingDialog" value="My Title,My Message"/>
+<preference name="LoadingDialog" value="webcarrão"/>
 <preference name="ErrorUrl" value="myErrorPage.html"/>
-<preference name="ShowTitle" value="true"/>
+<preference name="ShowTitle" value="false"/>
 <preference name="LogLevel" value="VERBOSE"/>
 <preference name="AndroidLaunchMode" value="singleTop"/>
 <preference name="DefaultVolumeStream" value="call" />
