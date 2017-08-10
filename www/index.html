@@ -12,6 +12,8 @@
     <script src="css/index.css"></script>
     <script src="js/index.js"></script>
     <script src="js/jquery.mobile-1.3.2.min.js"></script>
+    <script src="js/cordova.js"></script>
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -130,6 +132,11 @@
                 // We do this by checking the data that the framework stores on the page element (panel: open).
                 if ($.mobile.activePage.jqmData("panel") !== "open") {
                     if (e.type === "swipeleft") {
+                        if($(".veiculoload").hasClass('app-active')){
+                            $('#myCarousel').carousel('next');
+                        }
+
+
 
 if($(".meus-anuncios").hasClass('app-active')){
 
@@ -159,6 +166,10 @@ if($(".meus-anuncios").hasClass('app-active')){
 
 
                     } else if (e.type === "swiperight") {
+
+                        if($(".veiculoload").hasClass('app-active')){
+                            $('#myCarousel').carousel('prev');
+                        }
 
                         if($(".meus-anuncios").hasClass('app-active')){
 
@@ -293,6 +304,8 @@ if($(".meus-anuncios").hasClass('app-active')){
 
 
                         <script>
+
+
                             function filtro(tipo, veiculo, item, texto, depen, ultimo, ults,mesag) {
                                 filtroclose();
 
@@ -301,14 +314,8 @@ if($(".meus-anuncios").hasClass('app-active')){
                                 var val = $('#' + ults).val();
 
                                 if (val == '' && ultimo == 0) {
-                                    navigator.notification.alert(
-                                            mesag,  // message
-                                            alertDismissed,         // callback
-                                            '',            // title
-                                            'OK'                  // buttonName
-                                    );
 
-                                    //alert(mesag);
+                                    alert(mesag);
                                 } else {
 
                                     var filtro = [];
@@ -863,7 +870,7 @@ if($(".meus-anuncios").hasClass('app-active')){
 
 <script>
 
-function criaranuncio(veiculo,partes) {
+function criaranuncio(veiculo,partes,anuncio) {
 
     if(checklogs() == true) {
         var value = checklogsval();
@@ -874,7 +881,7 @@ function criaranuncio(veiculo,partes) {
         parte[2] = 'parte2.php';
         parte[3] = 'parte3.php';
 
-        $('.criar-anuncio').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/addanuncio/'+parte[partes]+'?user='+value+'&veiculo='+veiculo);
+        $('.criar-anuncio').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/addanuncio/'+parte[partes]+'?user='+value+'&veiculo='+veiculo+'&anuncio='+anuncio);
 
         $('.ui-panel-content-wrap').addClass('white-back');
 
@@ -952,7 +959,7 @@ function criaranuncio(veiculo,partes) {
     }
 function cadastrodados() {
     var nome = $("#nomecad").val();
-    var email = $("#emailcad").val();
+    var email = $("#emailcad").sendpropsval();
     var cpf = $("#cpfcad").val();
     var tel = $("#telefonecad").val();
     var cel = $("#celularcad").val();
@@ -1306,7 +1313,7 @@ function cadastrodados() {
         $('.header').html('');
         $('.header').html('<span onclick="home();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
                 '<h5 onclick="home();" style="font-size: 12pt;margin-top:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resultado</h5>' +
-                '<span style="cursor:pointer;position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;"><i class="glyphicon glyphicon-search" style="font-size: 12pt"></i> &nbsp;&nbsp;<i style="font-size: 12pt" class="glyphicon glyphicon-indent-left"></i></span>');
+                '<span style="cursor:pointer;position: absolute;right: 2%;top: 17px;font-size: 9pt;text-shadow: none;"><i onclick="home();" class="glyphicon glyphicon-search" style="font-size: 12pt"></i> &nbsp;&nbsp;<i style="font-size: 12pt" class="glyphicon glyphicon-indent-left"></i></span>');
         $('.ui-panel-content-wrap').addClass('white-back');
 
         $('.app-active').addClass('app');
