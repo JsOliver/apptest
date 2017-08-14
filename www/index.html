@@ -870,6 +870,46 @@ if($(".meus-anuncios").hasClass('app-active')){
 
 <script>
 
+    function addlocal(){
+
+
+        $('.criar-anuncio').load('https://site.webcarrao.com.br/aplicativo/pages/perfil/ajax/addlocalidade.php');
+
+
+    $('#ssvls').html('');
+    filtroclose();
+    $('body').addClass('opacity');
+
+    $('.header').html('');
+    $('.header').html('<span onclick="home();" style="cursor:pointer;position: absolute;margin: 8px 8px 8px 10px;"><i style="font-size: 16pt;" class="glyphicon glyphicon-arrow-left"></i></span>' +
+            '<h5 onclick="home();" style="font-size: 12pt;margin-top:13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adicionar Localidade</h5>' );
+    $('.app-active').addClass('app');
+    $('.app-active').removeClass('app-active');
+    closemenu();
+    $('.ui-panel-content-wrap').removeClass('white-back');
+
+    setTimeout(function () {
+        $('.criar-anuncio').removeClass('app');
+        $('.criar-anuncio').addClass('app-active');
+        $('body').removeClass('opacity');
+
+    }, 1000);
+    }
+
+
+
+    $(document).ready(function() {
+        $("html").scroll(function() {
+            if ($(this).scrollTop() + $(this).height() == $(this).get(0).scrollHeight) {
+                //requisição ajax para selecionar postagens
+
+                alert('ok');
+            } // fim do if
+        }); // fim scroll
+    }); // fim document ready
+</script>
+<script>
+
 function criaranuncio(veiculo,partes,anuncio) {
 
     if(checklogs() == true) {
@@ -959,7 +999,7 @@ function criaranuncio(veiculo,partes,anuncio) {
     }
 function cadastrodados() {
     var nome = $("#nomecad").val();
-    var email = $("#emailcad").sendpropsval();
+    var email = $("#emailcad").val();
     var cpf = $("#cpfcad").val();
     var tel = $("#telefonecad").val();
     var cel = $("#celularcad").val();
@@ -1108,14 +1148,14 @@ function cadastrodados() {
         var telefone = $("#telefone").val();
         var email = $("#email").val();
         var mensagem = $("#mensagem").val();
-
+        var veiculoname = $("#veiculoname").val();
 
 
 
         if(nome !== "" && telefone !== "" && email !== "" && mensagem !== ""){
             if (((email.indexOf("@") >0) && (email.indexOf('.') >0)))
             {
-                $.post("https://site.webcarrao.com.br/aplicativo/pages/proposta/enviar.php",{nome:nome,email:email,telefone:telefone,mensagem:mensagem,veiculo:veiculo},function (res) {
+                $.post("https://site.webcarrao.com.br/aplicativo/pages/proposta/enviar.php",{nome:nome,email:email,telefone:telefone,mensagem:mensagem,veiculo:veiculo,veiculoname:veiculoname},function (res) {
                     if(res == 11){
                         alert('Proposta enviada com sucesso.');
                         veiculoload(veiculo);
@@ -1178,13 +1218,19 @@ function cadastrodados() {
         }, 1000);
     }
 
-    function proposta(veiculo) {
+    function proposta(veiculo,nomess) {
         filtroclose();
         $('body').addClass('opacity');
         if(checklogs() == true){
 
             var value = checklogsval();
-            $('.enviarproposta').load('https://site.webcarrao.com.br/aplicativo/pages/proposta/quadro.php?user='+value);
+
+            $.post("https://site.webcarrao.com.br/aplicativo/pages/proposta/quadro.php",{user:value,nome:nomess},function(res){
+                if(res){
+                    $('.enviarproposta').html(res);
+                }
+            });
+
 
         }
         $('.header').html('');
@@ -1429,7 +1475,10 @@ function addfiltroad(tipo, id, dado, text, depend, array) {
             $(this).parent().carousel('next');
         });
     });
-
+    function onDeviceReady() {
+        document.addEventListener("backbutton", backKeyDown, true);
+        console.log("PhoneGap is ready");
+    }
 </script>
 </body>
 </html>
