@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="webcarrao" version="1.0.0" xmlns="https://ncbrasil.com.br/" xmlns:cdv="https://ncbrasil.com.br/">
     <name>Webcarrão</name>
     <description>
         O maior portal de automoveis do Brasil.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="joaovictordada2@gmail.com" href="https://ncbrasil.com.br/">
         NCBrasil
     </author>
     <content src="index.html" />
