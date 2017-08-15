@@ -28,4 +28,3 @@
     <plugin name="cordova-plugin-dialogs" spec="^1.3.3" />
 	android:debugable="false"
 </widget>
-	 <icon src="icon.png" />
