@@ -48,6 +48,8 @@
 		    <icon src="img/Icon-App-76x76@2x.png" platform="ios" width="76" height="76" density="mdpi" />
 		    <icon src="img/Icon-App-76x76@3x.png" platform="ios" width="76" height="76" density="mdpi" />
 		    <icon src="img/Icon-App-83.5x83.5@2x.png" platform="ios" width="83" height="83" density="mdpi" />
+		    <icon src="img/Icon-120x120.png" platform="ios" width="120" height="120" density="mdpi" />
+		    <icon src="img/Icon-152x152.png" platform="ios" width="152" height="152" density="mdpi" />
 		    <icon src="img/Icon-Small-50x50@1x.png" platform="ios" width="50" height="50" density="mdpi" />
 		    <icon src="img/Icon-Small-50x50@2x.png" platform="ios" width="50" height="50" density="mdpi" />
 
