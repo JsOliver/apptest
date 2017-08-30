@@ -38,5 +38,7 @@
 		    <icon src="img/Icon-Small.png" platform="ios" width="29" height="29" density="mdpi" />
 		    <icon src="img/Icon-Small-50.png" platform="ios" width="50" height="50" density="mdpi" />
 		    <icon src="img/Icon-Small-50@2x.png" platform="ios" width="50" height="50" density="mdpi" />
+		    <icon src="img/Icon-120.png" platform="ios" width="120" height="120" density="mdpi" />
+		    <icon src="img/Icon-152.png" platform="ios" width="152" height="152" density="mdpi" />
 
 </widget>
