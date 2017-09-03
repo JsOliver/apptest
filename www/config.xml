@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="webcarrao" version="1.0.13" xmlns="https://ncbrasil.com.br/" xmlns:cdv="https://ncbrasil.com.br/">
+<widget id="webcarrao" version="1.0.14" xmlns="https://ncbrasil.com.br/" xmlns:cdv="https://ncbrasil.com.br/">
     <name>Webcarrão</name>
     <description>
         O maior portal de automoveis do Brasil.
@@ -25,19 +25,12 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-			    <icon src="img/Icon.png" platform="ios" width="57" height="57" density="mdpi" />
-		    <icon src="img/Icon-60.png" platform="ios" width="60" height="60" density="mdpi" />
-		    <icon src="img/Icon-60@2x.png" platform="ios" width="60" height="60" density="mdpi" />
-		    <icon src="img/Icon-60@3x.png" platform="ios" width="60" height="60" density="mdpi" />
-		    <icon src="img/Icon-72.png" platform="ios" width="72" height="72" density="mdpi" />
-		    <icon src="img/Icon-76.png" platform="ios" width="76" height="76" density="mdpi" />
-		    <icon src="img/Icon-76@2x.png" platform="ios" width="76" height="76" density="mdpi" />
-		    <icon src="img/Icon-167.png" platform="ios" width="167" height="167" density="mdpi" />
-		    <icon src="img/Icon-Small.png" platform="ios" width="29" height="29" density="mdpi" />
-		    <icon src="img/Icon-Small-50.png" platform="ios" width="50" height="50" density="mdpi" />
-		    <icon src="img/Icon-Small-50@2x.png" platform="ios" width="50" height="50" density="mdpi" />
-		    <icon src="img/Icon-120.png" platform="ios" width="120" height="120" density="mdpi" />
-		    <icon src="img/Icon-152.png" platform="ios" width="152" height="152" density="mdpi" />
+		    <icon src="img/1024.png" platform="ios" width="1024" height="1024" density="mdpi" />
+		    <icon src="img/180.png" platform="ios" width="180" height="180" density="mdpi" />
+		    <icon src="img/167.png" platform="ios" width="167" height="167" density="mdpi" />
+		    <icon src="img/152.png" platform="ios" width="152" height="152" density="mdpi" />
+		    <icon src="img/120.png" platform="ios" width="120" height="120" density="mdpi" />
+
     </platform>
     <plugin name="cordova-plugin-dialogs" spec="^1.3.3" />
 	
