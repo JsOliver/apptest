@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="webcarrao" version="1.0.17" xmlns="https://ncbrasil.com.br/" xmlns:cdv="https://ncbrasil.com.br/">
+<widget id="webcarrao" version="1.0.18" xmlns="https://ncbrasil.com.br/" xmlns:cdv="https://ncbrasil.com.br/">
 
     <name>Webcarrão</name>
     <description>
@@ -37,6 +37,6 @@
     </platform>
     <plugin name="cordova-plugin-dialogs" spec="^1.3.3" />
 	
-<preference name="phonegap-version" value="cli-5.4.1" />
+<preference name="phonegap-version" value="cli-6.0.0" />
 
 </widget>
